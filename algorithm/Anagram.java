@@ -22,27 +22,27 @@ public class Anagram {
 	public  static boolean IsAnagram(String param1,String param2) {
 		if(param1.length()==param2.length()) {
 			
-			char[] string1=param1.toCharArray();
-			char[] string2=param2.toCharArray();
+			char[] string1=param1.toCharArray(); //converting the string into array
+			char[] string2=param2.toCharArray(); //converting the string into array
 			for(int count=0;count<param1.length();count++) {
-				int flag=0;
+				int flag=0; // act as an indicator
 				for(int count1=0;count1<param2.length();count1++) {
 					if(string1[count]==string2[count1]) {
 						flag=1;
 					}
 				}
 				if(flag==0) {
-					return false;
+					return false; //return false if two words are not anagram
 				}
 			}
 
 		}
 		else
-			return false;
-		return true;
+			return false; //return false if two words are not anagram
+		return true;          //return true if two words are not anagram
 	}
 	public static void main(String[] args) {
-		System.out.println(IsAnagram("ajd","bca"));
+		System.out.println(IsAnagram("ajd","bca")); //calling IsAnagram() to check the two words and displaying the result
 		
 	}
 }
