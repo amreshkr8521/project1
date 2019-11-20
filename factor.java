@@ -9,10 +9,11 @@ public class factor {
 	 */
 	public static void factorial(int parameter) {
 		int calculate=1;
-		while(parameter!=0) {
+		while(parameter!=0) //loop will cotinue till the parameter is 0
+		{
 			System.out.print(parameter+" ");
 			parameter--;
-			calculate=calculate*parameter;
+			calculate=calculate*parameter; //calculation of factorial
 		}
 		
 	}
