@@ -8,6 +8,6 @@ import com.bridgelabz.util.utility;
 public class leapYear {
 
 public static void main(String[] args) {
-	utility.leapYearCheck(20000);
+	utility.leapYearCheck(20000); // calling leapYearCheck() from the utility class
 }
 }
