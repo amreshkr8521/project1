@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author amresh kumar
  * @since 19-11-2019
- * @version 
+ * @version 1.0
  *
  */
 public class TwoDimensionalArray {
