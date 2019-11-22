@@ -13,16 +13,20 @@
 package com.bridgelabz.algorithm;
 
 public class MergeSorting {
-	static int lowerIndex=0,higherIndex=0,middle;
+	//static int lowerIndex=0,higherIndex=0,middle;
 	static int[] array;
-	static int[] new_array;
-public static void mergeSort(int[] arr) {
-	 for(int fact=0;fact<arr.length;fact++) {
-		 array[fact]=arr[fact];
-	 }
-	int arrayLength=array.length;
 	
-	divideArray(lowerIndex,arrayLength-1);
+public static void mergeSort(int[] arr,int length) {
+	array=new int[length];
+	 for(int fact=0;fact<length;fact++) {
+			array[fact]=arr[fact];
+			// System.out.println(array[fact]);
+		}
+	
+	 System.out.println(length-1);
+	
+	
+	divideArray(0,length-1);
 	 }
 	
 /**
@@ -32,9 +36,10 @@ public static void mergeSort(int[] arr) {
  * @param higherIndex
  */
 	public static void divideArray(int lowerIndex , int higherIndex ){
-		
+		//System.out.println("a" +lowerIndex+ " "+ higherIndex);
 		if(lowerIndex<higherIndex) {
-			middle=lowerIndex+(higherIndex-lowerIndex)/2;
+		int	middle=lowerIndex+(higherIndex-lowerIndex)/2;
+			System.out.println(middle);
 		divideArray(lowerIndex,middle);	//recurtion to divide further 
 		
 		divideArray(middle+1,higherIndex);// recurtion to divide further
@@ -56,12 +61,14 @@ public static void mergeSort(int[] arr) {
 		int[] temp=new int[array.length];
 		for(int fact=0;fact<array.length;fact++) {
 			temp[fact]=array[fact];
+			
 		}
 		while(lower<middle && high<higherIndex) {
 		if(temp[lower]<=temp[high]) {
 			
 			array[index]=temp[lower];
 			lower++;
+			
 		}
 		else {
 			array[index]=temp[high];
@@ -74,12 +81,21 @@ public static void mergeSort(int[] arr) {
 			index++;
 			lower++;
 		}
+		while(high<higherIndex) {
+			array[index]=temp[high];
+			high++;
+			index++;
+		}
 		
 		}	
 	
 	public static void main(String[] args) {
-		int[] arr= {89,54,12,47,98,53,12};
-		mergeSort(arr);// calling the mergesort() to merge the arr
+		 int arr[]= {89,54,12,47,98,53,12};
+		 
+		
+		 
+		mergeSort(arr,arr.length);// calling the mergesort() to merge the arr
+		
 	}
 }
 

@@ -10,7 +10,7 @@
 
 package com.bridgelabz.junit;
 
-import com.bridgelabz.util.utility;
+import com.bridgelabz.util.Utility;
 
 public class ToBinary {
 
@@ -33,7 +33,7 @@ public class ToBinary {
 			
 		}
 		 //Return the binary number by calling the intReverse() method
-		return ((utility.intReverse(bin))*10); 
+		return ((Utility.intReverse(bin))*10); 
 		}
 		else {
 			while(num!=0) {
@@ -44,7 +44,7 @@ public class ToBinary {
 				
 			}
 			//Return the binary number by calling the intReverse() method
-		return utility.intReverse(bin);
+		return Utility.intReverse(bin);
 		}							
 	}
 	public static void main(String[] args) {

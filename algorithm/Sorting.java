@@ -15,8 +15,9 @@ public class Sorting {
 	 * To sort the array in bubble sorting technique 
 	 * the biggest value will take its place at first and so on
 	 * 
-	 * @param array which is to be sorted
-	 * @since 16-11-2019
+	 * @param 	array -->int[]
+	 * @return	void
+	 * @since 	16-11-2019
 	 */
 	public static void bubbleSorting(int[] array) {
 		
@@ -47,9 +48,12 @@ public class Sorting {
 	
 	/**
 	 * to sort an array by the selection sorting technique
+	 * 
 	 * @author amresh kumar
-	 * @param array which is to be sorted
-	 * @since 16-11-2019
+	 * @param  array --> int[]
+	 * @return void
+	 * @since  16-11-2019
+	 * 
 	 */
 public static void selectionSort(int[] array) {
 	int temp;

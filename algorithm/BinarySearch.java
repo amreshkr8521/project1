@@ -38,6 +38,10 @@ public class BinarySearch {
 		}
 		return -1;																		//returning -1 if number not found 
 		}
+	public static void main(String[] args) {
+		int arr[]= {2,3,6,4,7};
+		System.out.println(binarySearchIntiger(arr, 4, arr.length-1, 0));
+	}
 	}
 
 
