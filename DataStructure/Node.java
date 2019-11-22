@@ -1,0 +1,11 @@
+package com.bridgelabz.DataStructure;
+/**
+ * to have a node for the Linked List
+ * @author  amresh kumar
+ * @since   22-11-2019
+ * @version 1.0
+ */
+public class Node {
+Node next;
+int data;
+}
