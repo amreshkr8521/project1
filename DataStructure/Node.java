@@ -5,7 +5,7 @@ package com.bridgelabz.DataStructure;
  * @since   22-11-2019
  * @version 1.0
  */
-public class Node {
+public class Node<T> {
 Node next;
-int data;
+T data;
 }

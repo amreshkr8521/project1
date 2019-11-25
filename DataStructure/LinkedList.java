@@ -9,21 +9,22 @@ package com.bridgelabz.DataStructure;
  * @author 	amresh kumar
  * @since 	22-11-2019
  * @version 1.0
+ * @modified made to generic
  */
 
-public class LinkedList {
-Node head;
+public class LinkedList<T> {
+ Node head;
 
 
 /***************************************************************
  * To insert the data in the linked list
  * 
- * @param 	data --> integer
+ * @param 	data --> Generic
  * @return 	void
  * 
  * *************************************************************
  */
-public void insert(int data) {
+public  void insert(T data) {
 	Node node=new Node();// creating new node
 	node.data=data; //inserting data to new node
 	node.next=null;
@@ -66,12 +67,12 @@ public void show() {
  * To insert the element at given index were the user wants to insert
  * 
  * @param  Index --> integer
- * @param  data	--> integer
+ * @param  data	--> Generic
  * @return void
  * 
  * ***************************************************************************
  */
-public void insertAt(int Index,int data) {
+public  void insert(int Index,T data) {
 	Node node=new Node();		//temporary node created
 	node.data=data;
 	node.next=null;
@@ -95,12 +96,12 @@ public void insertAt(int Index,int data) {
 /************************************************************************
  * To insert the element at the starting point of the linked list 
  * 
- * @param data -->integer
+ * @param data -->Generic
  * @return void
  * 
  * **********************************************************************
  */
-public void insertAtStart(int data) {
+public  void insertAtStart(T data) {
 	Node node=new Node();
 	node.data=data;
 	node.next=head;				//assign head address to the new node 
@@ -115,7 +116,7 @@ public void insertAtStart(int data) {
  * 
  * *****************************************************************************
  */
-public void deleteAtIndex(int index) {
+public  void pop(int index) {
 	
 	if(index==0) // If index is 0 means deleting the First element
 		
@@ -135,7 +136,166 @@ public void deleteAtIndex(int index) {
 	
 }
 
+/**
+ * To remove a given item which is passed by the user
+ * if the passed item is not found than say "Not Found"
+ * 
+ * @param 	item --> Generic type
+ * @return	void
+ */
 
+public void remove(T item) {
+	int index=index(item); //to check the index of the item
+	
+	
+if(index==0) // If index is 0 means deleting the First element
+		
+		head=head.next;
+
+else if(index==-1)// if item is not found
+	
+System.out.println("Not found");
+	
+	else
+	{
+		Node n=head;		//node to traverse the list
+		Node n1=null;		// to store the address of the front node of the node which is to be deleted
+		
+		for(int fact=0;fact<index-1;fact++) 
+			n=n.next;
+		
+		n1=n.next;			
+		n.next=n1.next;
+	}
+	
+}
+
+
+/*******************************************************
+ * 
+ * To find the index of the item
+ * 
+ * @param 	item --> Generic type
+ * @return 	integer
+ * 
+ * ******************************************************
+ */
+public int index(T item) {
+	Node node=head; //creating node object
+	int count=0; 	//To count
+	
+		while(node.next!=null)//loop till item is not found
+		{
+					
+			node=node.next;
+			count++;
+			if(node.data==item || node.data.equals(item)) {
+				return count++;
+			}
+		}
+		
+		
+	return count++; // return count
+}
+
+/********************************************
+ * 
+ * To search the passed item from the list
+ * 
+ * @param 	item --> Generic
+ * @return	integer
+ * 
+ * ******************************************
+ */
+public boolean search(T item) {
+	Node n=head; //creating node object and storing head to it
+	
+	
+		while(n.next!=null) //loop will flow till item is not found
+		{
+					
+			n=n.next;
+			
+			if(n.data==item || n.data.equals(item)) //if item is not found in the list
+			
+				
+				return true;
+			
+		}
+		
+		
+		
+	return false; //returning the index value of the item
+}
+
+
+/********************************************
+ * 
+ * To check the list is empty or not
+ * 
+ * @return boolean
+ * 
+ * ******************************************
+ */
+public  boolean isEmpty() {
+	Node n=head; //creating node object and storing head to it
+	if(n==null)
+		return true; //returning true if list is empty
+	else
+		return false; //returning false if list is empty
+}
+
+
+/**********************************
+ * to find the size of the list
+ * 
+ * @return integer
+ * 
+ * ********************************
+ */
+public int size() {
+	Node node=head; //creating the node object to store the head
+	int count=0;
+	while(node.next!=null) // traverse all the element of the list
+	{
+		count++;
+		node=node.next;
+	}
+	return count++; //return the size of list
+}
+
+
+/*******************************************************
+ * 
+ * To remove the last element of the list and return it
+ * 
+ * @return <T>
+ * 
+ *  *****************************************************
+ */
+public T pop(){
+	T removed=null;
+	Node n=head;
+	if(size()==0) // If index is 0 means deleting the First element
+		
+		head=head.next;
+	
+	else
+	{
+				
+		Node n1=null;		// to store the address of the front node of the node which is to be deleted
+		
+		for(int fact=0;fact<size()-1;fact++) 
+			n=n.next;
+		removed=(T)n.next.data;
+		System.out.println(removed);
+		n.next=null;			
+		
+	}
+return removed; //return the removed item
+}
+
+// generic at 22-11-2019 at 18:45
 }
 
 
