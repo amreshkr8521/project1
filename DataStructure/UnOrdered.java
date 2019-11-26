@@ -51,7 +51,7 @@ public static void fileToList() throws IOException {
 	for (String word : words) 
 		list.insert(word);
 	
-	
+	System.out.println(str);
 	
 	
 	if (list.search(str)) {
@@ -65,7 +65,7 @@ public static void fileToList() throws IOException {
 		list.insert(str);
 		
 	}
-	list.show();
+	//list.show();
 	
 	
 	
@@ -74,10 +74,12 @@ public static void fileToList() throws IOException {
 	
 	FileWriter fw = new FileWriter("C:\\Users\\amitv\\Desktop\\bridgelabz\\test.txt");
 	//logic to search the word,remove and add
-	System.out.println(list.size());
+	
+	//list.show();
 	int size=list.size();
+	System.out.println(size);
 	for(int count=0;count<=size;count++) {
-	fw.write(list.pop() +" ");
+	fw.write(list.read(count) +" ");
 	}
 	fw.close();
 	

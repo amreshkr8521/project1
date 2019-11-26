@@ -284,16 +284,27 @@ public T pop(){
 	{
 				
 		Node n1=null;		// to store the address of the front node of the node which is to be deleted
-		
-		for(int fact=0;fact<size()-1;fact++) 
+		int size=size();
+		for(int fact=0;fact<size-1;fact++) 
 			n=n.next;
-		removed=(T)n.next.data;
+		removed=(T)n.data;
 		System.out.println(removed);
 		n.next=null;			
 		
 	}
+	System.out.println(removed);
 return removed; //return the removed item
 }
+
+public T read(int pos) {
+	Node node=head;
+	for(int count=0;count<pos;count++) {
+		node=node.next;
+	}
+	return (T) node.data;
+}
+
+
 
 // generic at 22-11-2019 at 18:45
 }

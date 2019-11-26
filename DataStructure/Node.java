@@ -8,4 +8,8 @@ package com.bridgelabz.DataStructure;
 public class Node<T> {
 Node next;
 T data;
+Node(){
+	next=null;
+	data=null;
+}
 }
