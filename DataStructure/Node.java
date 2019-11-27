@@ -12,4 +12,8 @@ Node(){
 	next=null;
 	data=null;
 }
+ Node(T item){
+	next=null;
+	data=item;
+}
 }

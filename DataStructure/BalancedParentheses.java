@@ -1,13 +1,30 @@
 package com.bridgelabz.DataStructure;
 
 import java.util.Scanner;
+/**
+ * Take an Arithmetic Expression    
+ * where parentheses are used to order the performance of operation
+ * 
+ * @author 	amresh kumar
+ * @since 	26-11-2019
+ * @version 1.0
+ *
+ */
 
 public class BalancedParentheses {
 	static Scanner scanner=new Scanner(System.in);
+	
+	/**
+	 * To check if  Arithmetic   Expression is balanced or not
+	 * 
+	 * @param	 exp 	--> char[]
+	 * @param	 length	--> integer
+	 * @return 	 boolean
+	 */
 	 public static boolean balancedParenthesis(char[] exp,int length)
 	    {
 	    	//object of Stack class 
-	    	Stack st = new Stack();
+	    	Stack st = new Stack(length);
 	    	//logic to check parenthesis in expression
 	    	for(int i = 0;i<length;i++)
 	    	{
@@ -33,8 +50,9 @@ public class BalancedParentheses {
 	    }
 	    /**
 	     * define static function isMatchingPair() to match the opened and closed parenthesis to make pairs
-	     * @param ch1 ==> char
-	     * @param ch2 ==> char
+	     * 
+	     * @param  ch1 --> char
+	     * @param  ch2 --> char
 	     * @return boolean
 	     */
 	    public static boolean isMatchingPair(char ch1, char ch2) 

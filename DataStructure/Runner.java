@@ -77,8 +77,15 @@ public class Runner {
 		/*BankingCashCounter bank=new BankingCashCounter();
 		bank.banking();*/
 		
-		PalindromeChecker pc=new PalindromeChecker();
-		pc.palindrome();
+		//PalindromeChecker pc=new PalindromeChecker();
+		//pc.palindrome();
+		
+		PrimeAnagram pa=new PrimeAnagram();
+		pa.show();
+		//System.out.println(89/100);
+		
+		
+	
 	}
 
 }

@@ -46,7 +46,7 @@ public void enqueue(T item) {
 		while(n.next!=null) //traversing till last node
 		
 			n=n.next;
-		
+	
 		n.next=node; //after the last node is found than the new node is assigned 
 	}
 }
@@ -77,10 +77,10 @@ public void dequeue() {
  * ***********************************************************************************************
  */
 public boolean isEmpty() {
-	if(size()==0)
-		return false; //return false if there is any element
+	if(head==null)
+		return true; //return false if there is any element
 	else
-		return true; // return true if there is no element
+		return false; // return true if there is no element
 }
 
 
@@ -95,12 +95,18 @@ public boolean isEmpty() {
 public int size() {
 	Node node=head; //creating the node object to store the head
 	int count=0;
-	while(node.next!=null) // traverse all the element 
-	{
-		count++;
-		node=node.next;
+	if(head==null) {
+		return -1;
 	}
-	return count+1; //return the size
+	else {
+	while(node!=null) // traverse all the element 
+	{
+		
+		node=node.next;
+		count++;
+	}
+	return count; //return the size
+	}
 }
 
 /**************************************************************************************************
@@ -169,12 +175,12 @@ public int index(T item) {
 			node=node.next;
 			count++;
 			if(node.data==item || node.data.equals(item)) {
-				return count++;
+				return count;
 			}
 		}
 		
 		
-	return count++; // return count
+	return -1; // return count
 }
 
 }

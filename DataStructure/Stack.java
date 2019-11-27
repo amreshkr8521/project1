@@ -1,95 +1,106 @@
 package com.bridgelabz.DataStructure;
 
-public class  Stack <T>{
-	
-	Node head;
-	Stack(){
-		head=null;
+import java.util.NoSuchElementException;
+/**
+ *   A stack is an abstract data type that serves as a collection of elements,
+ *   with two principal operations: push, which adds an element to the collection, and pop,
+ *   which removes the most recently added element that was not yet removed
+ * 
+ * @author 	amresh kumar
+ * @since 	26-11-2019
+ * @version 1.0
+ *
+ */
+
+public class Stack {
+	int top;
+	char[] stackArray;
+	int size;
+
+	/**
+	 * define parameterized constructor to initialize the object of stack
+	 *  
+	 * @param s ==> integer
+	 */
+	public Stack(int s) {
+		size = s;
+		stackArray = new char[size];
+		top = 0;
 	}
-public void push(T item) {
-	Node node=new Node();// creating new node
-	node.data=item; //inserting data to new node
-	node.next=null;
-	
-	if(head==null) 
-	{  
-		head=node;
+
+	/**
+	 * To add the element in the stack
+	 * 
+	 * @param data -->integer
+	 */
+	public void push(char data) {
+		if (top == size) {
+			System.out.println("Overflow");
+		} else {
+			stackArray[top++] = data;
+		}
 	}
-	else {
-		Node n=head;
-		while(n.next!=null) //traversing through linked list till last node
-		
-			n=n.next;
-		
-		n.next=node; //after the last node is found than the new node is assigned 
+
+	/**
+	 * To remove the elements from the stack
+	 * 
+	 * @param 	null
+	 * @return 	char
+	 */
+	public char pop() {
+		char data = 0;
+		if (isEmpty()) {
+			throw new NoSuchElementException("UnderFlow");
+		} else {
+			data = stackArray[--top];
+			stackArray[top] = 0;
+
+		}
+		return data; //return the element
+
 	}
-}
 
-
-public void pop() {
-	Node node=head;
-	if(node == null)
-		 System.out.println("Stack is Empty");
-	 else
-	 {
-		 Node current = node;
-		 Node previous = null;
-		 while(current.next != null)
-		 {
-			 previous = current;
-		     current = current.next; 
-		 }	
-		
-		 previous.next = null; 
-		
-	 }
-	
-}
-
-public boolean isEmpty() {
-	 if(head == null)
-		 return true;
-	 else
-		 return false;
-}
-public int size()
-{
-	 int size = 0;
-	 Node current = head;
-	 while(current != null)
-	 {
-		 current = current.next;
-		 size++;
-	 } 
-	 return size;
-}
-public void display()
-{
-	 Node node =head;
-	 while(node != null)
-	 {
-		 System.out.print(node.data +" ");
-		 node = node.next;
-	 }    
-	 System.out.println();    
-}
-
-public T peek()
-{
-	 T data = null;
-	 if(head == null)
+	/**
+	 * To get the last elements from the stack
+	 * 
+	 * @return integer
+	 */
+	public int peek() {
+		int data = stackArray[top - 1];
 		return data;
-	 else
-	 {
-		 Node current = head;
-		 Node previous = null;
-		 while(current != null)
-		 {
-			 previous = current;
-			 current = current.next;
-		 }
-		 data = (T) previous.data;
-	 }
-	return data;	 
-}
+	}
+
+	/**
+	 * To check the stack is empty or not
+	 * 
+	 * @param	null
+	 * @return  boolean
+	 */
+	public boolean isEmpty() {
+		return (top <= 0);
+	}
+
+	/**
+	 * to check the size of the stack
+	 * 
+	 * @return integer
+	 */
+	public int size() {
+		return top;
+	}
+
+	/**
+	 *  to print the elements of the stack
+	 *  
+	 *  @param 	null
+	 *  @return void
+	 *  
+	 */
+	public void show() {
+		for (int i : stackArray) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+	}
+
 }

@@ -3,26 +3,28 @@ package com.bridgelabz.DataStructure;
 import java.util.Scanner;
 
 public class PalindromeChecker<T> {
-	static Dequeue dq=new Dequeue();
+	
 	static Scanner scanner=new Scanner(System.in);
+	
+	
 public static boolean isPalindrome(String data) {
-	char first,  last;
-	char[] ch=data.toCharArray();
-	for(int count=0;count<data.length();count++) {
-		dq.addFront(ch[count]);
-		//dq.show();
-		//System.out.println(ch[count]);
-	}
-	boolean option=true;
-	while(dq.size()>1 || option) {
-		first=(char) dq.RemoveFront();
-		last=(char) dq.removeRear();
-		System.out.println(last+" and "+first);
-		if(first!=last)
-			option= false;
-	}
-	dq.show();
-	return option;
+	// creating an object of Deque class
+			Dequeue<Character> d = new Dequeue<Character>();
+			
+			for (int i = 0; i < data.length(); i++) {
+				char ch = data.charAt(i);
+				d.addFront(ch);
+			}
+
+			String reverse = "";
+			for (int i = 0; i < data.length(); i++) {
+				reverse = reverse + d.removeFront();
+			}
+
+			if (reverse.equals(data)) {
+				return true;
+			} else
+				return false;
 }
 
 public static void palindrome() {

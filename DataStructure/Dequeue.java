@@ -28,23 +28,14 @@ public Dequeue() //constructor to initializing the DeQueue object
  * ****************************************************************************************
  */
 public void addFront(T item) {
-
-	 
-	  
-	  Node node = new Node(); //new node
-	  node.data = item;
-	  node.next = null;
-
-	  if (head==null) {
-	    head=node; //if node is null means new item will be the first element
-	  } else {
-	    node.next = head;
-	    head=node;
-	   
-	  }
-
-	 
+	Node node = new Node(item);
+	if (head == null) {
+		head = node;
+	} else {
+		node.next = head;
+		head = node;
 	}
+}
 
 /******************************************************************************************
  * 
@@ -56,24 +47,18 @@ public void addFront(T item) {
  * ****************************************************************************************
  */
 public void addRear(T item) {
-	Node node=new Node();// creating new node
-	node.data=item; //inserting data to new node
-	node.next=null;
-	
-	if(head==null) 
-		
-		head=node;
-	
-	else {
-		Node n=head;
-		while(n.next!=null) //traversing till last node
-		
-			n=n.next;
-		
-		n.next=node; //after the last node is found than the new node is assigned 
+	Node node = new Node(item);
+	Node current = head;
+	if (head == null) {
+		head = node;
+	} else {
+		while (current.next != null) {
+			current = current.next;
+		}
+		current.next = node;
+		node = current;
 	}
 }
-
 /*******************************************************************************************************
  * To remove the element from the rear side
  * 
@@ -83,26 +68,18 @@ public void addRear(T item) {
  * *****************************************************************************************************
  */
 public T removeRear() {
-	T removed=null;
-	Node n=head;
-	if(size()==0) // If index is 0 means deleting the First element
-		
-		head=head.next;
-	
-	else
-	{
-				
-		Node n1=null;		// to store the address of the front node of the node which is to be deleted
-		int size=size();
-		for(int fact=0;fact<size;fact++) 
-			n=n.next;
-		removed=(T)n.data;
-		//System.out.println(removed);
-		n.next=null;			
-		
+	Node current = head;
+	T data = null;
+	Node prev = null;
+	while (current.next != null) {
+		prev = current;
+		current = current.next;
 	}
-	return removed;
-}	
+	data = (T) current.data;
+	prev.next = null;
+	return data;
+}
+
 
 /*******************************************************************************************************
  * To remove the element from the front side
@@ -112,21 +89,11 @@ public T removeRear() {
  * 
  * *****************************************************************************************************
  */
-	public T RemoveFront() {
-		Node node=head;
-		T removed=null;
-		if(node==null)
-			System.out.println("Empty");
-		else {
-			
-			 node=head;
-			 removed=(T) head.data;  
-			head=node.next;
-			
-		}
-		return removed;
-	}
-	
+public T removeFront() {
+	T data = (T) head.data;
+	head = head.next;
+	return data;
+}
 	
 	/***************************************************************************************************
 	 * 
@@ -152,16 +119,20 @@ public boolean isEmpty() {
 	 * 
 	 * ********************************
 	 */
-	public int size() {
-		Node node=head; //creating the node object to store the head
-		int count=0;
-		while(node.next!=null) // traverse all the element of the list
-		{
-			count++;
-			node=node.next;
+public int size() {
+	Node current = head;
+	int size = 0;
+	if (head == null) {
+		System.out.println("Queue is empty");
+	} else {
+		while (current != null) {
+			size++;
+			current = current.next;
 		}
-		return count++; //return the size of list
+		return size;
 	}
+	return -1;
+}
 	
 	
 	/**************************************************************************************************
