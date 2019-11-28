@@ -24,7 +24,7 @@ public class LinkedList<T> {
  * 
  * *************************************************************
  */
-public  void insert(T data) {
+public  void add(T data) {
 	Node node=new Node();// creating new node
 	node.data=data; //inserting data to new node
 	node.next=null;
@@ -53,6 +53,9 @@ public  void insert(T data) {
 
 public void show() {
 	Node n=head;
+	if (head == null) {
+		System.out.println("list is empty..!!");
+	} else {
 	while(n.next!=null) // loop to traverse till next is null
 	{
 		
@@ -61,7 +64,7 @@ public void show() {
 	}
 	System.out.println(n.data); //will show the last element of the list as its next is null
 }
-
+}
 
 /****************************************************************************
  * To insert the element at given index were the user wants to insert
@@ -116,24 +119,23 @@ public  void insertAtStart(T data) {
  * 
  * *****************************************************************************
  */
-public  void pop(int index) {
+public T pop(int pos) {
 	
-	if(index==0) // If index is 0 means deleting the First element
-		
-		head=head.next;
-	
-	else
-	{
-		Node n=head;		//node to traverse the list
-		Node n1=null;		// to store the address of the front node of the node which is to be deleted
-		
-		for(int fact=0;fact<index-1;fact++) 
-			n=n.next;
-		
-		n1=n.next;			
-		n.next=n1.next;
+	Node current = head;
+	Node prev = null;
+	T data = null;
+	if (pos == 0) {
+		data = (T) head.data;
+		head = head.next;
+		return (T) data;
 	}
-	
+	for (int i = 0; i < pos; i++) {
+		prev = current;
+		current = current.next;
+	}
+	prev.next = current.next.next;
+	return (T) current.data;
+
 }
 
 /**
@@ -145,29 +147,25 @@ public  void pop(int index) {
  */
 
 public void remove(T item) {
-	int index=index(item); //to check the index of the item
-	
-	
-if(index==0) // If index is 0 means deleting the First element
-		
-		head=head.next;
-
-else if(index==-1)// if item is not found
-	
-System.out.println("Not found");
-	
-	else
-	{
-		Node n=head;		//node to traverse the list
-		Node n1=null;		// to store the address of the front node of the node which is to be deleted
-		
-		for(int fact=0;fact<index-1;fact++) 
-			n=n.next;
-		
-		n1=n.next;			
-		n.next=n1.next;
+	Node current = head;
+	Node prev = null;
+	if (head == null) {
+		System.out.println("List is empty..!!");
+		return;
 	}
-	
+	if (head.data.equals(item)) {
+		head = head.next;
+	} else {
+		while (current.next != null) {
+			if (current.data.equals(item)) {
+				System.out.println("Removed :" + current.data);
+				prev.next = current.next;
+				return;
+			}
+			prev = current;
+			current = current.next;
+		}
+	}
 }
 
 
@@ -303,6 +301,7 @@ public T read(int pos) {
 	}
 	return (T) node.data;
 }
+
 
 
 

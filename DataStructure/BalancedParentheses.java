@@ -25,6 +25,7 @@ public class BalancedParentheses {
 	    {
 	    	//object of Stack class 
 	    	Stack st = new Stack(length);
+	    	
 	    	//logic to check parenthesis in expression
 	    	for(int i = 0;i<length;i++)
 	    	{
@@ -38,7 +39,7 @@ public class BalancedParentheses {
 	    			}
 	    			else
 	    			{
-	    				if(!isMatchingPair(st.pop(),exp[i]))
+	    				if(!isMatchingPair(st.pop(),exp[i]))// matching the pair
 	    					return false;
 	    			}	
 	    		}
@@ -67,8 +68,8 @@ public class BalancedParentheses {
 	         return false; 
 	    }    
 		
-	    //Main method
-		public static void main(String[] args) {
+	    
+		public static void balancedParanthesischeck() {
 			System.out.println("Enter the expression : ");
 			char []exp = scanner.nextLine().toCharArray();
 			int length = exp.length;

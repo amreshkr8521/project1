@@ -45,7 +45,7 @@ public  void bankingCashCounter(int option) {
 	{
 	case 1 : 
 			System.out.println("Enter the money= ");
-	 		queue.enqueue(scanner.nextInt());
+	 		queue.enqueue(scanner.nextInt());//to deposit the money
 	 		
 	 		banking();
 	 		break;
@@ -53,16 +53,16 @@ public  void bankingCashCounter(int option) {
 	case 2:
 			System.out.println("Enter the money= ");
 			
-			queue.dequeue(scanner.nextInt());
+			queue.dequeue(scanner.nextInt()); // to withdraw the money
 			banking();
 			break;
 			
 	case 3:	
-			queue.show();
+			queue.show(); //show the balance
 			banking();	
 			break;
 	case 4: 
-			System.out.println("thank you ");
+			System.out.println("thank you "); //exit
 			break;		
 			
 	}

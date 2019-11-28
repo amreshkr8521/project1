@@ -15,7 +15,7 @@ package com.bridgelabz.DataStructure;
 public class  Queue<T> {
 Node head;
 
-Queue() //constructor to initializing the Queue object
+public Queue() //constructor to initializing the Queue object
 {
 	head=null;
 	
@@ -129,7 +129,14 @@ public void show() {
 	System.out.println(n.data); //will show the last element its next is null
 }
 
-
+/*****************************************************************************
+ * To delete a node
+ * 
+ * @param 	item --> generic type
+ * @return	void
+ * 
+ * ****************************************************************************
+ */
 public void dequeue(T item) {
 	int index=index(item); //to check the index of the item
 	

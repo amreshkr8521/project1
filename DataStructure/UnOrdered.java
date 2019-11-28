@@ -4,11 +4,32 @@ import java.io.*;
 import java.nio.channels.FileChannel;
 import java.util.Scanner;
 
+import com.bridgelabz.util.Utility;
+/****************************************************************************************************
+ * 
+ * To read the file in string and ask the user to input some string type value
+ * if the value is not present in the file than write the value in file or else
+ * delete the value if found.
+ *   
+ * @author  amresh kumar
+ * @since   25-11-2019
+ * @version 1.0
+ *
+ *****************************************************************************************************
+ */
 public class UnOrdered {
 
 	static Scanner scanner=new Scanner(System.in);
 	
-	
+/**************************************************************
+ * To read the file from the hard drive.
+ * 	
+ * @param filename --> string
+ * 
+ * @return string
+ * 
+ * ***********************************************************
+ */
 public static String readFile(String filename) {
 	BufferedReader br;
 
@@ -33,59 +54,57 @@ public static String readFile(String filename) {
 			System.out.println(e.getStackTrace());
 		}
 	}
-	return sb.toString();
+	return sb.toString(); //returning in string format
 
 }
 
 
-
+/*********************************************************************
+ * 
+ * To write in the file after the all the process is done.
+ * 
+ * @throws 	IOException
+ * @param 	null
+ * @return	void
+ * 
+ * ********************************************************************
+ */
 public static void fileToList() throws IOException {
 	LinkedList<String> list = new LinkedList<String>();
 	System.out.println("Enter the word you want to search :");
-	String str=scanner.nextLine();
-	//read from file and assign into String s
-	String s =readFile("C:/Users/amitv/Desktop/bridgelabz/test.txt");
+	String item = Utility.nextLine();
 
-	String []words = s.split(" ");
-	//adding in data into linkedlist
-	for (String word : words) 
-		list.insert(word);
-	
-	System.out.println(str);
-	
-	
-	if (list.search(str)) {
-		list.remove(str);  
-		System.out.println("test");
-	
-	} 
-	
-	else
-	{
-		list.insert(str);
-		
+	// read from file and assign into String s
+	String s = Utility.readFromFile("C:\\\\Users\\\\amitv\\\\Desktop\\\\bridgelabz\\\\test.txt");
+
+	String[] words = s.split(" ");
+
+	// adding in data into linkedlist
+	for (String word : words)
+		list.add(word);
+
+	// to write into file
+	FileWriter fw = new FileWriter("C:\\\\Users\\\\amitv\\\\Desktop\\\\bridgelabz\\\\test.txt");
+
+	// logic to search the word,remove and add
+	if (list.search(item) == true) {
+		list.remove(item);
+	} else {
+		list.add(item);
 	}
-	//list.show();
-	
-	
-	
-	
-	
-	
-	FileWriter fw = new FileWriter("C:\\Users\\amitv\\Desktop\\bridgelabz\\test.txt");
-	//logic to search the word,remove and add
-	
-	//list.show();
-	int size=list.size();
-	System.out.println(size);
-	for(int count=0;count<=size;count++) {
-	fw.write(list.read(count) +" ");
+	list.show();
+	int size = list.size();
+
+	// System.out.println(size);
+	for (int i = 0; i <= size; i++) {
+		fw.write(list.pop(0) + " ");
 	}
-	fw.close();
-	
-	
-	
+	fw.close();//closing the file after writing on it
 }
+	
+	
+	
+
 public static void main(String[] args) throws IOException {
 	fileToList();
 }

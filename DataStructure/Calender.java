@@ -1,6 +1,23 @@
 package com.bridgelabz.DataStructure;
-
+/*********************************************************************
+ * 
+ * To display the calendar in calendar format
+ * 
+ * 
+ * @author amresh kumar
+ * @since 26-11-2019
+ *
+ **********************************************************************
+ */
 public class Calender {
+	/**
+	 * To calculate the day of the week
+	 * 
+	 * @param 	month --> integer
+	 * @param 	day	--> integer
+	 * @param 	year	-->integer
+	 * @return	integer
+	 */
 	  public static int day(int month, int day, int year) {
 	        int y = year - (14 - month) / 12;
 	        int x = y + y/4 - y/100 + y/400;
@@ -9,16 +26,32 @@ public class Calender {
 	        return d;
 	    }
 
-	    // return true if the given year is a leap year
+	    /********************************************************
+	     * 
+	     * to return true if the given year is a leap year
+	     * 
+	     * @param 	year -->integer
+	     * @return	boolean
+	     * 
+	     * ******************************************************
+	     */
 	    public static boolean isLeapYear(int year) {
 	        if  ((year % 4 == 0) && (year % 100 != 0)) return true;
 	        if  (year % 400 == 0) return true;
 	        return false;
 	    }
 
-	    public static void main(String[] args) {
-	        int month = 11;//Integer.parseInt(args[0]);    // month (Jan = 1, Dec = 12)
-	        int year =2019;// Integer.parseInt(args[1]);     // year
+	    /*******************************************************************
+	     * To show the calendar 
+	     * 
+	     * @param 	month -->integer
+	     * @param	year  -->integer	
+	     * @return 	void
+	     * 
+	     * *****************************************************************
+	     */
+	    public static void ShowCalender(int month,int year) {
+	       
 
 	        // months[i] = name of month i
 	        String[] months = {

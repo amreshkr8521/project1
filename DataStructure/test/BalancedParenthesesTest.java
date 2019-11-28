@@ -1,8 +1,10 @@
-package com.bridgelabz.DataStructure;
+package com.bridgelabz.DataStructure.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import com.bridgelabz.DataStructure.BalancedParentheses;
 
 class BalancedParenthesesTest {
 public static BalancedParentheses test=new BalancedParentheses();
