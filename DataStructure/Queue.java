@@ -1,4 +1,7 @@
 package com.bridgelabz.DataStructure;
+
+import java.util.NoSuchElementException;
+
 /************************************************
  *  
  *   Queue is an abstract data structure, somewhat similar to Stacks.
@@ -190,4 +193,20 @@ public int index(T item) {
 	return -1; // return count
 }
 
+
+/**
+ * for removing the elements from the queue
+ * 
+ * @return T
+ */
+public T deQueue() {
+	T data = null;
+	if (head == null) {
+		throw new NoSuchElementException("UnderFlow");
+	} else {
+		data = (T) head.data;
+		head = head.next;
+	}
+	return data;
+}
 }
