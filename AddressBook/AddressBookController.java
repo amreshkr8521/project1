@@ -1,6 +1,7 @@
 package com.bridgelabz.AddressBook;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,7 +24,8 @@ import org.json.simple.parser.JSONParser;
  * @since  5-12-2019
  *
  */
-public class AddressBookController implements Services{
+public class AddressBookController implements IServices{
+	AddressModel modelObject=new AddressModel();
 	static JSONArray ja = new JSONArray();
 	static JSONObject jsonMainObj = new JSONObject();
 	static Scanner scanner=new Scanner(System.in);
@@ -52,6 +54,7 @@ public class AddressBookController implements Services{
 	  }
 	  catch(Exception e) {
 		  System.out.println("***FILE NOT FOUND***"); //If file not found
+		  AddressBookView_Object.menu();
 	  }
 	
 	}
@@ -62,18 +65,17 @@ public class AddressBookController implements Services{
 	 * @param 	FilePath --> String
 	 * @return	boolean
 	 */
-	 public boolean isFile(String FilePath) {
-		 
+	 @SuppressWarnings({ "resource", "unused" })
+	public boolean isFile(String FilePath) {
+		 FileReader file;
+		 try {
+			file=new FileReader(FilePath);
+			return true;
+		} catch (FileNotFoundException e) {
+		System.out.println(e.getMessage());	
+		return false;
+		}
 
-		  try { 
-	     FileReader file=new FileReader(FilePath);
-	       return false;
-         
-         
-	  }
-	  catch(Exception e) {
-		  return true;
-	  }
      }
 	 
 	 /**
@@ -112,7 +114,7 @@ public class AddressBookController implements Services{
 		System.out.println("Enter the file name(use .json extension)");
 		String Name=scanner.nextLine();
 		if(isFile(Name))
-		  newFile(Name);
+		  New(Name);
 		else {
 			System.out.println("File exist's try different name(use .json extension)");
 			AddressBookView_Object.menu();
@@ -175,7 +177,7 @@ private void save(String next, JSONObject jsonObject) {
 	 * 
 	 * @param fileName --> String
 	 */
-	public void newFile(String fileName)  {
+	public void New(String fileName)  {
 		try {
 			
 		JSONObject Object = new JSONObject();
@@ -194,7 +196,7 @@ private void save(String next, JSONObject jsonObject) {
 				AddressBookView_Object.menu(); // redirecting to the main menu
 			}
 		}catch(Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 			
 	}
@@ -203,23 +205,31 @@ private void save(String next, JSONObject jsonObject) {
 	 * to take input to the address book
 	 * @param FilePath
 	 */
+	@SuppressWarnings("unchecked")
 	public void AddressBookEntry(String FilePath) {
 		try {
 			 JSONObject Object = new JSONObject();
 			System.out.println("Enter the first name  :");
-			Object.put("First Name",scanner.next());
+			modelObject.setFirstName(scanner.next());
+			Object.put("First Name",modelObject.getFirstName());
 			System.out.println("Enter the last name  :");
-			Object.put("Last Name",scanner.next());
+			modelObject.setLastname(scanner.next());
+			Object.put("Last Name",modelObject.getLastname());
 			System.out.println("Enter the address :");
-			Object.put("Address",scanner.next());
+			modelObject.setAddress(scanner.next());
+			Object.put("Address",modelObject.getAddress());
 			System.out.println("Enter the state:");
-			Object.put("State",scanner.next());
+			modelObject.setState(scanner.next());
+			Object.put("State",modelObject.getState());
 			System.out.println("Enter the city :");
-			Object.put("City",scanner.next());
+			modelObject.setCity(scanner.next());
+			Object.put("City",modelObject.getCity());
 			System.out.println("Enter the zip :");
-			Object.put("Zip",scanner.next());
+			modelObject.setZip(scanner.nextInt());
+			Object.put("Zip",modelObject.getZip());
 			System.out.println("Enter the phone number :");
-			Object.put("Phone Number",scanner.next());
+			modelObject.setMobileNumber(scanner.nextLong());
+			Object.put("Phone Number",modelObject.getMobileNumber());
 			 
 			 ja.add(Object);
 			 
