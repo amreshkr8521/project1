@@ -7,18 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
- <form action="">
+ <form action="SignUP.jsp">
  <fieldset>
 <table><tr><td>
  Login Id </td><td><input type="text"><br></td></tr>
- 
  <tr><td>password</td><td> <input type="text"></td></tr>
  <tr>
  <td></td>
- <td>
- 
-<button type="button">Log in</button><button type="button">Sign In</button></td></tr>
+ <td><button type="button" >Log in</button></td>
+ </tr>
 </table>
+<a href="SignUP.jsp"> Register</a>
 </fieldset></form> 
 </body>
 </html>
