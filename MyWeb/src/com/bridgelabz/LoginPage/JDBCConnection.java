@@ -2,7 +2,14 @@ package com.bridgelabz.LoginPage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/**************************************************************
+ * To create the database connection 
+ * 
+ * @author amresh kumar
+ * @since 30-12-2019
+ * 
+ * ************************************************************
+ */
 public class JDBCConnection extends JDBCProvider {
 	/**
 	 * To create the connection between the mysql and the application
@@ -12,7 +19,7 @@ public class JDBCConnection extends JDBCProvider {
 	 * @param 	password 	--> String
 	 * @return 	Connection
 	 */
-public Connection jdbcConnection(String link,String name,String password)
+public Connection jdbcConnection()
 {
 	try {
 		

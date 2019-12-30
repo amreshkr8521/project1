@@ -1,7 +1,7 @@
 package com.bridgelabz.LoginPage;
 
 public class JDBCProvider {
-private String link="jdbc:mysql://localhost:3306/amresh";
-private String name="root";
-private String password="12345";
+public String link="jdbc:mysql://localhost:3306/amresh";
+public String name="root";
+public String password="12345";
 }
