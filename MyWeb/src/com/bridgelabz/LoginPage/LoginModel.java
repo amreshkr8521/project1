@@ -1,10 +1,9 @@
-package com.bridgelabz.LoginPage;
+package com.bridgelabz.LoginPage.model;
 
 public class LoginModel {
 private String firstName;
 private String lastName;
 private String email;
-private String ID;
 private long mobileNo;
 private String gender;
 private String pwd;
@@ -31,12 +30,6 @@ public String getEmail() {
 }
 public void setEmail(String email) {
 	this.email = email;
-}
-public String getID() {
-	return ID;
-}
-public void setID(String iD) {
-	ID = iD;
 }
 public long getMobileNo() {
 	return mobileNo;
