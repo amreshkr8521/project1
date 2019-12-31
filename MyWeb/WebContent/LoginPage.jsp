@@ -4,17 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <style>
 a:hover {
 	color :red
 }
 	  body  {
-            background-image: url("/home/user/Downloads/images.jpeg");
+            background-image: url("images.jpeg");
             background-color: #cccccc;
-         }
-         
+         }         
   #field{
    height: 100px;
             background: -webkit-linear-gradient(left, red , blue);
@@ -22,19 +21,16 @@ a:hover {
             background: -moz-linear-gradient(right, red, blue);
             background: linear-gradient(to right, red , blue);
   }       
-
-
 </style>
 <body>
  <form action="Login" method="get"><fieldset><div id="field">
- <h1>Login</h1></div>
- 
+ <h1>Login ${message1} ${ADDED_IN_DATABASE}</h1></div> 
  <table><tr><td>
- Login Id </td><td><input type="text" value="name" name="userId"><br></td></tr>
- <tr><td>password</td><td> <input type="text" name="pwd"></td></tr>
+ Email </td><td><input type="text" placeholder="abc@gmail.com" name="userId"><br></td></tr>
+ <tr><td>password</td><td> <input type="password" name="pwd"></td></tr>
  <tr>
  <td></td>
- <td><button id="login" type="button" >Log in</button></td>
+ <td><button id="login" type="submit" name="submit">Log in</button></td>
  </tr>
 </table>
 <a href="SignUP.jsp"> Register</a>

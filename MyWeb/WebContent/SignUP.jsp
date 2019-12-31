@@ -18,25 +18,29 @@ body{ background-color: #cccccc;}
 #hi{background-color:blue}
 </style>
 <body >
-<form action=""><div id="field">
+<form action="SignUp" method="get"><div id="field">
 <fieldset >
 
-<h1 id="h1">Register</h1><br>
+
+<h1 id="h1">Register ${warning1} ${warning} </h1>
+<h1 id="h1">${DATABASE_WARNING} ${ADDED_IN_DATABASE}</h1>
+
+<br>
 First Name<br>
-<input type="text" value="FirstName"><br>
+<input type="text" placeholder="FirstName" name="FirstName"><br>
 <br>
 Last Name<br>
-<input type="text" value="LastName"><br><br>
+<input type="text" placeholder="LastName" name="LastName"><br><br>
 email<br>
-<input type="text" value="abc@gmail.com"><br><br>
+<input type="text" placeholder="abc@gmail.com" name="email"><br><br>
 Mobile no.<br>
-<input type="text" value="9874563210"><br><br>
-<input type="radio" value="Male" >Male<input type="radio" value="Male"> Female<br><br>
+<input type="text" placeholder="9874563210" name="mobile"><br><br>
+<input type="radio" value="Male" name="gender" >Male<input type="radio" value="Male" name="gender"> Female<br><br>
 Password<br>
-<input type="password"><br><br>
+<input type="password" name="password"><br><br>
 Re-type password<br>
-<input type="password"><br><br>
-<input type="submit" value="Sign Up">
+<input type="password" name="rePassword"><br><br>
+<input id="SignUp" type="submit" name="submit">
 </fieldset>
 </div>
 </form>
