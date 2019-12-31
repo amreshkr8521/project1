@@ -4,62 +4,67 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class DAOImplimentation implements ILoginDAO {
+import com.bridgelabz.LoginPage.model.LoginModel;
 
-	JDBCConnection connection;
+
+public class DAOImplimentation implements ILoginDAO {
+	JDBCConnection connection =new JDBCConnection() ;
 	PreparedStatement preparedstatement;
+	static LoginModel model=new LoginModel();
 	@Override
-	public LoginModel getUser(String Email,String pwd) {
-		LoginModel model=new LoginModel();
-		try {
-	Connection con=	connection.jdbcConnection();
-	String qry="Select * from Users where email=? and pwd=?";
-		preparedstatement=con.prepareStatement(qry);
-		preparedstatement.setString(1,Email);
-		preparedstatement.setString(2,pwd);
-		
-		ResultSet resultSet=preparedstatement.executeQuery();
-		while(resultSet.next()) {
+	public LoginModel getUser(String email,String pwd) {		
+		try {			
+	Connection con=	connection.jdbcConnection();	
+	String qry="SELECT * FROM Users WHERE email='"+email+"' and pwd='"+pwd+"';";
+		preparedstatement=con.prepareStatement(qry);		
+		ResultSet resultSet=preparedstatement.executeQuery(qry);		
+		while(resultSet.next()) {				
 			model.setEmail(resultSet.getString(3));
 			model.setPwd(resultSet.getString(7));
 			model.setFirstName(resultSet.getString(1));
-			model.setLastName(resultSet.getString(2));
-			model.setID(resultSet.getString(4));
+			model.setLastName(resultSet.getString(2));			
 			model.setMobileNo(resultSet.getLong(5));
-			model.setGender(resultSet.getString(6));
-		}
-		
-		
+			model.setGender(resultSet.getString(6));												
+		}		
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}
-	
-	
 	return model;
 	}
-
 	@Override
 	public int addUser(LoginModel model) {
 		int status=0;
-		
 		try {			
+			
 			Connection con=connection.jdbcConnection();
 			
-			String qry="Insert into Users (firstName,lastName,email,ID,mobileNumber,gender, pwd ) values(?,?,?,?,?,?,?);" ; 
-					
-			preparedstatement=con.prepareStatement(qry);
-			preparedstatement.setString(1,model.getFirstName());
-			preparedstatement.setString(2,model.getLastName());
-			preparedstatement.setString(3,model.getEmail());
-			preparedstatement.setString(4,model.getID());
-			preparedstatement.setLong(5,model.getMobileNo());
-			preparedstatement.setString(6,model.getGender());
-			preparedstatement.setString(7,model.getPwd());
-			status=preparedstatement.executeUpdate();
-			System.out.println(status);
+			String qry="insert into Users (firstName,lastName,email,mobileNumber,gender, pwd )  values('"+model.getFirstName()+"','"+model.getLastName()+"','"+model.getEmail()+"','"+model.getMobileNo()+"','"+model.getGender()+"','"+model.getPwd()+"');" ; 			
+			preparedstatement=con.prepareStatement(qry);	
+			status=preparedstatement.executeUpdate();				
 		}catch(Exception e) {
-			
+			e.getStackTrace();
 		}
 		return status;
 	}
+	public boolean IsEmail(String email) {
+		Connection con=	connection.jdbcConnection();
+		String qry="SELECT email FROM Users WHERE email='"+email+"';";
+		try {
+			
+		preparedstatement=con.prepareStatement(qry);
+		ResultSet resultSet=preparedstatement.executeQuery();
+		resultSet.next();
+		
+		if(resultSet.getString(1).equals(email)) {
+			
+			return true;
+		}else
+			return false;
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+		return false;
+	}	
+	
+
 }
