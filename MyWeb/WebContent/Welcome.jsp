@@ -6,23 +6,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-#field{  height: 100px;
-            background: -webkit-linear-gradient(left, red , blue);
-            background: -o-linear-gradient(right, red, blue); 
-            background: -moz-linear-gradient(right, red, blue);
-            background: linear-gradient(to right, red , blue);
-}
- body  {
-           
-            background-color: #cccccc;
-         } 
-</style>
+<jsp:include page="MyWeb.css"/>
+
+<%
+String user=null;
+if(session.getAttribute("user")==null){
+	response.sendRedirect("Loginpage.jsp");
+}else 
+	user=session.getAttribute("user").toString();	
+	
+%>
 <body>
+
 <h1 id="field">hi ${message} you have succesfully loged in </h1> 
-<table border="black">
-<tr><td> <button id="Details" name="details" type="submit" value="your details">your details</button></td></tr>
-<tr><td><button type="submit" name="show" >Edit</button></td></tr>
+<table >
+<tr><td>
+<form action="logout" method="post"><button type="submit" name="logout" >Logout</button></form>
+</td></tr>
 </table>
 </body>
 </html>

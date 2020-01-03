@@ -6,32 +6,17 @@
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
-<style>
-a:hover {
-	color :red
-}
-	  body  {
-            background-image: url("images.jpeg");
-           
-             
- 			 height: 100%; 
- 			 background-position: center;
- 			 background-repeat: no-repeat;
-  			background-size: cover;
-         }         
-  #field{
-   height: 100px;
-            background: -webkit-linear-gradient(left, red , blue);
-            background: -o-linear-gradient(right, red, blue); 
-            background: -moz-linear-gradient(right, red, blue);
-            background: linear-gradient(to right, red , blue);
-  }       
-</style>
+
+<jsp:include page="MyWeb.css"/>
 <body>
+<%
+if(session.getAttribute("user")!=null)
+	session.invalidate();
+%>
  <form action="Login" method="post"><fieldset><div id="field">
- <h1>Login ${message1} ${ADDED_IN_DATABASE}</h1></div> 
+ <h1>Login  ${message1} ${ADDED_IN_DATABASE} </h1></div> 
  <table><tr><td>
- Email </td><td><input type="text" placeholder="abc@gmail.com" name="userId"><br></td></tr>
+ Email </td><td><input type="text" placeholder="abc@gmail.com" name="userId" required="required"><br></td></tr>
  <tr><td>password</td><td> <input type="password" name="pwd"></td></tr>
  <tr>
  <td></td>
@@ -40,5 +25,9 @@ a:hover {
 </table>
 <a href="SignUP.jsp"> Register</a>
 </fieldset></form>
+
+<form action="forgot_passsword" method="post">
+<a href="forgotPassword.jsp">Forgot Password</a>
+</form>
 </body>
 </html>

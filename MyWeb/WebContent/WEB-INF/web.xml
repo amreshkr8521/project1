@@ -10,6 +10,7 @@
    <servlet-name>Login</servlet-name>
    <url-pattern>/Login</url-pattern>
    </servlet-mapping>
+   
    <servlet>
    <servlet-name>SignUp</servlet-name>
    <servlet-class>com.bridgelabz.SignUpPage.SignUp</servlet-class>
@@ -26,6 +27,15 @@
    <servlet-mapping>
    <servlet-name>Reset</servlet-name>
    <url-pattern>/forgot</url-pattern>
+   </servlet-mapping>
+   
+    <servlet>
+   <servlet-name>logout</servlet-name>
+   <servlet-class>com.bridgelabz.user.Welcome</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   <servlet-name>logout</servlet-name>
+   <url-pattern>/logout</url-pattern>
    </servlet-mapping>
  <welcome-file-list><welcome-file>LoginPage.jsp</welcome-file></welcome-file-list>
 </web-app>
