@@ -12,7 +12,12 @@ a:hover {
 }
 	  body  {
             background-image: url("images.jpeg");
-            background-color: #cccccc;
+           
+             
+ 			 height: 100%; 
+ 			 background-position: center;
+ 			 background-repeat: no-repeat;
+  			background-size: cover;
          }         
   #field{
    height: 100px;
@@ -23,7 +28,7 @@ a:hover {
   }       
 </style>
 <body>
- <form action="Login" method="get"><fieldset><div id="field">
+ <form action="Login" method="post"><fieldset><div id="field">
  <h1>Login ${message1} ${ADDED_IN_DATABASE}</h1></div> 
  <table><tr><td>
  Email </td><td><input type="text" placeholder="abc@gmail.com" name="userId"><br></td></tr>

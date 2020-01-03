@@ -44,4 +44,6 @@ public String getPwd() {
 public void setPwd(String pwd) {
 	this.pwd = pwd;
 }
+
 }
+

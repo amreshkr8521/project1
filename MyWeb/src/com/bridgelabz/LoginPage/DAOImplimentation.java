@@ -15,16 +15,17 @@ public class DAOImplimentation implements ILoginDAO {
 	public LoginModel getUser(String email,String pwd) {		
 		try {			
 	Connection con=	connection.jdbcConnection();	
-	String qry="SELECT * FROM Users WHERE email='"+email+"' and pwd='"+pwd+"';";
+	String qry="SELECT * FROM customers WHERE email='"+email+"' and password='"+pwd+"';";
 		preparedstatement=con.prepareStatement(qry);		
 		ResultSet resultSet=preparedstatement.executeQuery(qry);		
 		while(resultSet.next()) {				
-			model.setEmail(resultSet.getString(3));
+			model.setEmail(resultSet.getString(4));
 			model.setPwd(resultSet.getString(7));
-			model.setFirstName(resultSet.getString(1));
-			model.setLastName(resultSet.getString(2));			
+			model.setFirstName(resultSet.getString(2));
+			model.setLastName(resultSet.getString(3));			
 			model.setMobileNo(resultSet.getLong(5));
-			model.setGender(resultSet.getString(6));												
+			model.setGender(resultSet.getString(6));
+			
 		}		
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -38,7 +39,7 @@ public class DAOImplimentation implements ILoginDAO {
 			
 			Connection con=connection.jdbcConnection();
 			
-			String qry="insert into Users (firstName,lastName,email,mobileNumber,gender, pwd )  values('"+model.getFirstName()+"','"+model.getLastName()+"','"+model.getEmail()+"','"+model.getMobileNo()+"','"+model.getGender()+"','"+model.getPwd()+"');" ; 			
+			String qry="insert into customers (FirstName,LastName,email,mobile,gender, password )  values('"+model.getFirstName()+"','"+model.getLastName()+"','"+model.getEmail()+"','"+model.getMobileNo()+"','"+model.getGender()+"','"+model.getPwd()+"');" ; 			
 			preparedstatement=con.prepareStatement(qry);	
 			status=preparedstatement.executeUpdate();				
 		}catch(Exception e) {
@@ -48,7 +49,7 @@ public class DAOImplimentation implements ILoginDAO {
 	}
 	public boolean IsEmail(String email) {
 		Connection con=	connection.jdbcConnection();
-		String qry="SELECT email FROM Users WHERE email='"+email+"';";
+		String qry="SELECT email FROM customers WHERE email='"+email+"';";
 		try {
 			
 		preparedstatement=con.prepareStatement(qry);

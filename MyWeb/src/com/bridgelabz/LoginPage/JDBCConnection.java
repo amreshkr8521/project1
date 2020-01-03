@@ -12,6 +12,7 @@ import java.sql.DriverManager;
  *************************************************************
  */
 public class JDBCConnection extends JDBCProvider {
+	
 	/**
 	 * To create the connection between the mysql and the application
 	 * 
@@ -21,9 +22,10 @@ public class JDBCConnection extends JDBCProvider {
 	 * @return Connection
 	 */
 	public Connection jdbcConnection() {
+		JDBCConnection jdbcConnection=new JDBCConnection();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connction = DriverManager.getConnection(link,name,password);
+			Connection connction = DriverManager.getConnection(jdbcConnection.getLink(),jdbcConnection.getName(),jdbcConnection.getPassword());
 			return connction;
 		} catch (Exception e) {
 			System.out.println("Connection failed");

@@ -18,7 +18,7 @@ body{ background-color: #cccccc;}
 #hi{background-color:blue}
 </style>
 <body >
-<form action="SignUp" method="get"><div id="field">
+<form action="SignUp" method="post"><div id="field">
 <fieldset >
 
 
