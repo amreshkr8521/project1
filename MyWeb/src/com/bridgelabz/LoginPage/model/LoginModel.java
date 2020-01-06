@@ -4,7 +4,7 @@ public class LoginModel {
 private String firstName;
 private String lastName;
 private String email;
-private long mobileNo;
+private String mobileNo;
 private String gender;
 private String pwd;
 public String getGender() {
@@ -31,10 +31,10 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public long getMobileNo() {
+public String getMobileNo() {
 	return mobileNo;
 }
-public void setMobileNo(long mobileNo) {
+public void setMobileNo(String mobileNo) {
 	this.mobileNo = mobileNo;
 }
 public LoginModel() {}
@@ -44,6 +44,5 @@ public String getPwd() {
 public void setPwd(String pwd) {
 	this.pwd = pwd;
 }
-
 }
 

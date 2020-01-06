@@ -18,5 +18,10 @@ a:hover {
             background: -o-linear-gradient(right, red, blue); 
             background: -moz-linear-gradient(right, red, blue);
             background: linear-gradient(to right, red , blue);
-  }       
+  }    
+  
+  signUp_Body {
+  
+  	background-color : LightGray
+  }   
 </style>

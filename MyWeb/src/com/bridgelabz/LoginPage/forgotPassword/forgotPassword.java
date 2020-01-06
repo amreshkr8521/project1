@@ -14,6 +14,7 @@ public class forgotPassword extends HttpServlet{
 
 	
 	public void doGet(HttpServletRequest request,HttpServletResponse response) {
+		int i=0;
 		DAOImplimentation daoObject=new DAOImplimentation();
 		String email=request.getParameter("email");
 		String mobile=request.getParameter("mobile");
@@ -23,7 +24,8 @@ public class forgotPassword extends HttpServlet{
 		LoginModel loginModel=daoObject.getData(email,mobile);
 		if(loginModel!=null) {
 			loginModel.setPwd(password);
-			int i=daoObject.addUser(loginModel);
+			 i=daoObject.alterUser(email,password);
+			if(i!=0) {
 			HttpSession session=request.getSession();
 			session.setAttribute("email","password change");
 			try {
@@ -31,11 +33,12 @@ public class forgotPassword extends HttpServlet{
 			} catch (IOException e) {				
 				e.printStackTrace();
 			}
-			
+			}
 		}
 		else {
 			request.setAttribute("notchanged","Password not changed");
 			request.getRequestDispatcher("forgotPassword.jsp");
+		
 		}
 	}
 }

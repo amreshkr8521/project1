@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="forgot" method="get">
+	<form action="forgot" method="post">
 		<fieldset>
 
 			<table>
@@ -22,12 +22,12 @@
 				</tr>
 				<tr>
 					<td>New Password :</td>
-					<td><input type="text" placeholder="7894561230"
+					<td><input type="password" placeholder="7894561230"
 						name="password"></td>
 				</tr>
 				<tr>
 					<td>Re-type Password :</td>
-					<td><input type="text" placeholder="7894561230"
+					<td><input type="password" placeholder="7894561230"
 						name="RePassword"></td>
 				</tr>
 

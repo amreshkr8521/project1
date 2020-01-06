@@ -28,7 +28,7 @@
    <servlet-name>Reset</servlet-name>
    <url-pattern>/forgot</url-pattern>
    </servlet-mapping>
-   
+
     <servlet>
    <servlet-name>logout</servlet-name>
    <servlet-class>com.bridgelabz.user.Welcome</servlet-class>

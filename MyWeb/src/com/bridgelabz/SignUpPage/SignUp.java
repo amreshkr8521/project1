@@ -6,14 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 import com.bridgelabz.LoginPage.DAOImplimentation;
 import com.bridgelabz.LoginPage.model.LoginModel;
 
-@SuppressWarnings("serial")
+
 public class SignUp extends HttpServlet {
 	static LoginModel model = new LoginModel();
-
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		DAOImplimentation daoImplImentationObject = new DAOImplimentation();
 		String fName = request.getParameter("FirstName");
@@ -22,23 +21,16 @@ public class SignUp extends HttpServlet {
 		String mobile = request.getParameter("mobile");
 		String gender = request.getParameter("gender");
 		String password = request.getParameter("password");
-		String rePassword = request.getParameter("rePassword");
-		String submit = request.getParameter("submit");
+		String rePassword = request.getParameter("rePassword");		
 		if (password.equals(rePassword) && daoImplImentationObject.IsEmail(email) == false) {
 			model.setFirstName(fName);
 			model.setLastName(lName);
 			model.setEmail(email);
-			model.setLastName(mobile);
+			model.setMobileNo(mobile);
 			model.setGender(gender);
-			model.setPwd(password);
-			
-			
-			
-			
-			
+			model.setPwd(password);			
 			int i = daoImplImentationObject.addUser(model);
 			if (i == 0) {
-
 				try {
 					request.setAttribute("DATABASE_WARNING", "Not registered Please try later");
 					request.getRequestDispatcher("SignUP.jsp").forward(request, response);
@@ -49,6 +41,7 @@ public class SignUp extends HttpServlet {
 				}
 			} else {
 				try {
+					HttpSession httpSession=request.getSession();							
 					request.setAttribute("ADDED_IN_DATABASE", "Added successfully");
 					request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 				} catch (ServletException e) {
@@ -65,13 +58,11 @@ public class SignUp extends HttpServlet {
 				request.getRequestDispatcher("SignUP.jsp").forward(request, response);
 			} catch (IOException e) {
 				e.printStackTrace();
-			} catch (ServletException e) {
-				
+			} catch (ServletException e) {				
 				e.printStackTrace();
 			}
 		}
-		else if (password.equals(rePassword)) {
-			
+		else if (password.equals(rePassword)) {			
 		}
 		else {
 			request.setAttribute("warning", "Password Not Match");
@@ -83,6 +74,5 @@ public class SignUp extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
 	}
 }
