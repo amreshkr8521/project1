@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome</title>
 </head>
 
 <link rel="stylesheet"
@@ -28,7 +28,7 @@
 }
 
 #sideBar {
-	height: 1000px;
+	height: 500px;
 	width: auto;
 	background-color: LightGray;
 }
@@ -48,44 +48,70 @@ h1 {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	$(document).ready(function() {
-		$("#age").click(function() {
-
-			var data = "GRAPH" + "male";
-			$.ajax({
-				url : "Graph",
-				data : data,
-				type : 'get',
-				success : function(response) {
-					alert("got it");
-				}
-
-			});
-		});
+	/*$(document).ready(function() {
 		$("#location").click(function() {
+			$.get('test.html',function(data,status)
+					{
+						$('#ShowData').html();
+						alert(status);
+					});
+		});*/
+		$(document).ready(function() {
+			$("#age").click(function() {
+				$.get('test.html',function(data,status)
+						{
+							$('#ShowData').html(data);
 
-			var data = "GRAPH" + "Female";
+						});
+			});
+		$("#location").click(function() {
+			var data = "Location" + "location";
 			$.ajax({
 				url : "Graph",
-				data : data,
+				data :data,
 				type : 'get',
-				success : function(response) {
-					alert("got it");
-				}
+				success : function(data,status) {
+					$('#ShowData').html(data);
 
+				}
 			});
 		});
 
+		$("#male").click(function() {
+			var data = "male" + "male";
+			$.ajax({
+				url : "male",
+				data :data,
+				type : 'get',
+				success : function(data,status) {
+					$('#ShowData').html(data);
+
+				}
+			});
+		});
+
+		$("#female").click(function() {
+			var data = "female" + "female";
+			$.ajax({
+				url : "Female",
+				data :data,
+				type : 'get',
+				success : function(data,status) {
+					$('#ShowData').html(data);
+
+				}
+			});
+		});
 	});
+
+
 </script>
 <body>
 	<%
 		response.setHeader("Pragma", "no-cache");
-
 		if (session.getAttribute("user") == null)
 			response.sendRedirect("LoginPage.jsp");
 	%>
-
 	<div class="row">
 		<div class="col-sm-1">
 			<div>logo</div>
@@ -107,20 +133,18 @@ h1 {
 		<div class="col-sm-2">
 			<div id="sideBar">
 				<div class="btn-group-vertical">
-
 					<div>
 						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle btn-block"
+							<button class="btn btn-primary dropdown-toggle btn-block btnclick"
 								type="button" data-toggle="dropdown" id="graph">
 								GRAPH <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#age">age</a></li>
-								<li><a href="#location">location</a></li>
+								<li id="age">age</li>
+								<li id="location">location</li>
 							</ul>
 						</div>
 					</div>
-
 					<div>
 						<div class="dropdown">
 							<button class="btn btn-primary dropdown-toggle btn-block"
@@ -128,9 +152,8 @@ h1 {
 								Gender <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Male</a></li>
-								<li><a href="#">Female</a></li>
-
+								<li id="male">Male</li>
+								<li id="female">Female</li>
 							</ul>
 						</div>
 
@@ -146,7 +169,12 @@ h1 {
 				</div>
 			</div>
 		</div>
+		<div class="col-sm-8" id="ShowData">
+
+		</div>
 	</div>
+
+
 
 </body>
 </html>
