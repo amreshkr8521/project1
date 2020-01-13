@@ -7,27 +7,42 @@
 <title>Login</title>
 </head>
 
-<jsp:include page="MyWeb.css"/>
-
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+    body {
+        background-image: url("img.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 550px;
+    }
+</style>
 <body>
- <form action="Login" method="post"><fieldset><div id="field">
- <h1>Login </h1>
- <h1 id="h1"> ${message1} ${ADDED_IN_DATABASE} </h1></div> 
- <table><tr><td>
- Email </td><td><input type="text" placeholder="abc@gmail.com" name="userId" required="required"><br></td></tr>
- <tr><td>password</td><td> <input type="password" name="pwd" required="required"></td></tr>
- <tr>
- <td></td>
- <td><button id="login" type="submit" name="submit" >Log in</button></td>
- </tr>
-</table>
-<a href="SignUP.jsp"> Register</a>
-</fieldset></form>
+  <form action="Login" method="post">
+      <h3 id="h1">
+          ${message1} ${ADDED_IN_DATABASE}
+      </h3>
+      <div class="col-lg-offset-4 col-lg-4">
+          <h3 style="color: aliceblue">Login</h3>
+          <div class="form-group ">
+              <label for="Email" style="color: aliceblue">Email address</label>
+              <input type="email" class="form-control" id="userId" aria-describedby="email" name="userId" required>
+              <small  class="form-text text-muted" style="color: aliceblue">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+              <label for="Password" style="color: aliceblue">Password</label>
+              <input type="password" class="form-control" id="pwd" name="pwd">
+          </div>
+          <br />
 
-<form action="forgot_passsword" method="post">
-<a href="forgotPassword.jsp">Forgot Password</a>
-</form>
+
+          <button id="login" type="submit" name="submit" class="btn btn-primary form-control">login</button>
+
+      </div>
+  </form>
+  <a href="forgotPassword.jsp">Forgot Password?</a>
+    <a href="SignUP.jsp"> Register</a>
+
 </body>
 </html>
