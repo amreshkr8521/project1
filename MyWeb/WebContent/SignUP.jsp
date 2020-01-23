@@ -1,63 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<style>
-a:hover {
-	color :red
-}
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    </head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("img.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 550px;
+        }
+    </style>
+    <body>
+      <form action="SignUp" method="post">
+        <h3 id="h1">Register ${warning1} ${warning} </h3>
+        <h3 id="h1">${DATABASE_WARNING} ${ADDED_IN_DATABASE}</h3>
+          <div class="col-lg-offset-4 col-lg-4">
+              <h3 style="color: aliceblue">Sign Up</h3>
+              <div class="form-group ">
+                  <label for="" style="color: aliceblue">First Name</label>
+                  <input type="text" class="form-control" id="FirstName" aria-describedby="fname" name="FirstName" required>
+
+              </div>
+              <div class="form-group ">
+                  <label for="" style="color: aliceblue">Last Name</label>
+                  <input type="text" class="form-control" id="LastName" aria-describedby="lname" name="LastName" required>
+
+              </div>
+              <div class="form-group ">
+                  <label for="Email" style="color: aliceblue">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="email" name="email" required>
+
+              </div>
+              <div class="form-group ">
+                  <label for="Email" style="color: aliceblue">Mobile Number</label>
+                  <input type="text" class="form-control" id="mobile" aria-describedby="" name="mobile" required>
+
+              </div>
+              <div class="form-group ">
+                  <label for="" style="color: aliceblue">Age</label>
+                  <input type="text" class="form-control" id="age" aria-describedby="" name="age" required>
+
+              </div>
+              <div class="form-group ">
+                  <label for="" style="color: aliceblue">Location</label>
+                  <input type="text" class="form-control" id="location" aria-describedby="" name="location" required>
+
+              </div>
+              <div class="form-group " style="color: aliceblue">
+                <input type="radio" value="Male" name="gender" >Male<input type="radio" value="Female" name="gender" >Female<br><br>
+
+              </div>
+              <div class="form-group">
+                  <label for="Password" style="color: aliceblue">Password</label>
+                  <input type="password" class="form-control" id="pwd" name="password">
+              </div>
+              <div class="form-group">
+                  <label for="Password" style="color: aliceblue">Re-Type Password</label>
+                  <input type="password" class="form-control" id="repwd" name="rePassword">
+              </div>
+              <br />
 
 
-	  body  {
-	 
-            background-image: url("images.jpeg");
-           
-             
- 			 height: 100%; 
- 			 background-position: center;
- 			 background-repeat: no-repeat;
-  			background-size: cover;
-         }         
-  #field{
-   height: 100px;
-            background: -webkit-linear-gradient(left, red , blue);
-            background: -o-linear-gradient(right, red, blue); 
-            background: -moz-linear-gradient(right, red, blue);
-            background: linear-gradient(to right, red , blue);
-  }    
-  
-    
-</style>
-<body >
-<form action="SignUp" method="post"><div id="field">
-<fieldset id="f1">
+              <button id="login" type="submit" name="submit" class="btn btn-primary form-control">Register</button>
+
+          </div>
+      </form>
+      <a href="forgotPassword.jsp">Forgot Password?</a>
 
 
-<h1 id="h1">Register ${warning1} ${warning} </h1>
-<h1 id="h1">${DATABASE_WARNING} ${ADDED_IN_DATABASE}</h1>
-
-<br>
-First Name<br>
-<input type="text" placeholder="FirstName" name="FirstName" required="required"><br>
-<br>
-Last Name<br>
-<input type="text" placeholder="LastName" name="LastName"><br><br>
-email<br>
-<input type="text" placeholder="abc@gmail.com" name="email" required="required"><br><br>
-Mobile no.<br>
-<input type="text" placeholder="9874563210" name="mobile" required="required"><br><br>
-<input type="radio" value="Male" name="gender" >Male<input type="radio" value="Male" name="gender"> Female<br><br>
-Password<br>
-<input type="password" name="password" required="required"><br><br>
-Re-type password<br>
-<input type="password" name="rePassword" required="required"><br><br>
-<input id="SignUp" type="submit" name="submit">
-</fieldset>
-</div>
-</form>
-</body>
-</html>
+    </body>
+    </html>
