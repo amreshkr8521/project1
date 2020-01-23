@@ -1,207 +1,286 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Welcome</title>
-</head>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <meta http-equiv="x-ua-compatible" content="ie=edge">
+	  <title>Welcome</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+	  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+	  <link rel="stylesheet" href="css/mdb.min.css">
+
+	</head>
+	
+
+
+	<script>
+
+	function fun(){
+		var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		theme: "light2",
+		title:{
+		  text: "Male Age Line Chart"
+		},
+		axisY:{
+		  includeZero: false
+		},
+		data: [{
+		  type: "area",
+		  dataPoints: [
+			    { y: 21 },
+			    { y: 23 },
+			  ]
+		}]
+		});
+		chart.render();
+	}
+	function fun1(){
+		var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		theme: "light2",
+		title:{
+		  text: "Female Age Line Chart"
+		},
+		axisY:{
+		  includeZero: false
+		},
+		data: [{
+		  type: "line",
+		  dataPoints: [
+		    { y: 20 },
+		  ]
+		}]
+		});
+		chart.render();
+	}
+	function fun2(){
+		var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		theme: "light2",
+		title:{
+		  text: "Age Line Chart"
+		},
+		axisY:{
+		  includeZero: false
+		},
+		data: [{
+		  type: "line",
+		  dataPoints: [
+		    { y: 20 },
+		    { y: 21 },
+		    { y: 23 },
+		  ]
+		}]
+		});
+		chart.render();
+
+	}
+
+	</script>
+
+	<style>
+	#fGraph{
+	  margin-left: auto;
+	  margin-top: 10px;
+	}
+	#mGraph{
+	  margin-right: auto;
+	  margin-top: 10px;
+	}
+
+
+	    body {
+	        background-image: url("img.jpg");
+	        background-position: center;
+	        background-repeat: no-repeat;
+	        background-size: cover;
+	        height: 1000px;
+	    }
+
+	</style>
+	<body>
+
+	  <header>
+
+	<nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
+
+
+	  <a class="navbar-brand text-uppercase" href="#">Welcome</a>
+
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
+	    aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+
+
+	    <ul class="navbar-nav mr-auto">
+
+
+	      <li class="nav-item dropdown mega-dropdown active">
+	        <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+	          aria-haspopup="true" aria-expanded="false">Details
+	          <span class="sr-only">(current)</span>
+	        </a>
+	        <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3"
+	          aria-labelledby="navbarDropdownMenuLink2">
+	          <div class="row">
+	            <div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4">
+	              <h6 class="sub-title text-uppercase font-weight-bold white-text">Data</h6>
+	              <ul class="list-unstyled">
+	                <li class="sub-title text-uppercase" >
+
+										<a class="menu-item pl-1 mt-2" href="#">
+ 										<label for="" id="male" >Male</label>
+ 									 </a>
+
+	                </li>
+	                <li class="sub-title text-uppercase" >
+										<a class="menu-item pl-1 mt-2" href="#">
+										<label for="" id="female">Female</label>
+									 </a>
+	                </li>
+	                <li class="sub-title text-uppercase">
+	                  <a class="menu-item pl-1 mt-2" href="#">
+	                   <label for="" id="location">location</label>
+	                  </a>
+	                </li>
+	                <li class="sub-title text-uppercase"  >
+	                  <a class="menu-item pl-1 mt-2" href="#">
+	                  <label for="" id="age">Age</label>
+	                  </a>
+	                </li>
+	                <li class="sub-title text-uppercase" >
+	                  <a class="menu-item pl-1 mt-2" href="#">
+	                 <label for="" id="Registration"> Registration History</label>
+	                  </a>
+	                </li>
+	              </ul>
+	            </div>
 
 
 
+	          </div>
+	        </div>
+	      </li>
 
-<style>
-#header1 {
-	height: 50px;
-	width: 100%;
-	background-color: powderblue;
-}
+			</ul>
 
-#header2 {
-	height: 50px;
-	width: 100%;
-	background-color: rgb(78, 69, 69);
-}
-#sideBar {
-	height: 500px;
-	width: auto;
-	background-color: rgb(78, 69, 69);
-  margin-top: -20px;
+      <ul class="navbar-nav mr-auto">
 
-}
-#header{
-	background-color:rgb(78, 69, 69);
-}
-body {
-	background-image: url("images.jpeg");
-	height: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
 
-h1 {
-	color: white;
-}
-</style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <li class="nav-item dropdown mega-dropdown active">
+          <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Graph
+            <span class="sr-only">(current)</span>
+          </a>
+          <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3"
+            aria-labelledby="navbarDropdownMenuLink2">
+            <div class="row">
+              <div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4">
+                <h6 class="sub-title text-uppercase font-weight-bold white-text">graph</h6>
+                <ul class="list-unstyled">
+                  <li class="sub-title text-uppercase" >
 
-<script type="text/javascript" src="welcome.js"></script>
-<body>
+                    <a class="menu-item pl-1 mt-2" href="#">
+                    <label for="" id="male" onclick="fun()">Male</label>
+                   </a>
 
-	<%
-		response.setHeader("Pragma", "no-cache");
-		if (session.getAttribute("user") == null)
-			response.sendRedirect("LoginPage.jsp");
-	%>
-	<div class="row" id="header">
-		<div class="col-md-12">
-	<nav class="navbar navbar-light bg-light" >
-		<div class="row">
-		<div style="color: aliceblue" class="col-sm-2 col-lg-2 col-md-2 col-xs-3">Logo</div>
-		<div  class="col-sm-9 col-lg-9 col-md-9 col-xs-6">
-			<h3 style="color: aliceblue"> loged in</h3>
-		</div>
+                  </li>
+                  <li class="sub-title text-uppercase" >
+                    <a class="menu-item pl-1 mt-2" href="#">
+                    <label for="" id="female" onclick="fun1()">Female</label>
+                   </a>
+                  </li>
+
+                  <li class="sub-title text-uppercase"  >
+                    <a class="menu-item pl-1 mt-2" href="#">
+                    <label for="" id="age" onclick="fun2()">Age</label>
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+
+
+
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+
+
+	  </div>
 		<form action="logout" method="post">
-			<div class="col-lg-1 col-sm-1 col-xm-3 col-md-1 ">
+
 				<div>
 					<button type="submit" class="btn btn-primary btn-block ">Logout</button>
 				</div>
-			</div>
+
 		</form>
 
-</div>
+
 	</nav>
-</div>
-		</div>
-	<div class="row">
-<div class="sidebar col-xs-12 col-sm-3 col-md-3 col-lg-3 shadow-lg p-3 mb-3" data-color="white" data-active-color="danger" id="sideBar">
-	<div class="logo">
-		<a href="" class="simple-text logo-mini">
-			<div class="logo-image-small">
-				<img src="">
-			</div>
-		</a>
-		<a href="#" class="simple-text logo-normal">
-		User
-		</a>
-	</div>
-	<div class="sidebar-wrapper">
-		<ul class="nav">
-			<li class="active ">
-				<a href="">
-					<i class="nc-icon nc-bank"></i>
-					<p>Dashboard</p>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class="nc-icon nc-bell-55"></i>
-					<p>Notifications</p>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class="nc-icon nc-single-02"></i>
-					<p>User Profile</p>
-				</a>
-			</li>
-			<li>
+	  </header>
+	  <div class="row">
+	  	<div class="col-md-4">
+	  		<div class="card ">
+	  			<div class="card-header ">
+	  				<h5 class="card-title">Graph</h5>
+	  				<p class="card-category"></p>
+	  			</div>
+	  			<div class="card-body ">
 
-					<i class="nc-icon nc-tile-56"></i>
+	  				<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	  				<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	  			</div>
+	  			<div class="card-footer ">
+	  				<hr>
 
-					<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-						<div class="collapse navbar-collapse " id="navbarSupportedContent">
-							<ul class="navbar-nav mr-auto ">
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Gender
-									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-										<a class="dropdown-item" href="#">
-											<label for="Male" id="male">Male</label></a><br>
-											<a class="dropdown-item" href="#">
-												<label for="Email" id="female">Female</label></a>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</nav>
-					<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-						<div class="collapse navbar-collapse " id="navbarSupportedContent" style="  margin-top: -20px;">
-							<ul class="navbar-nav mr-auto ">
-								<li class="nav-item dropdown">
-									<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									 History
-									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-										<a class="dropdown-item" href="#">
-											<label for="Male" id="Registration">history</label></a><br>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</nav>
-					<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-						<div class="collapse navbar-collapse " id="navbarSupportedContent">
-							<ul class="navbar-nav mr-auto ">
-								<li class="nav-item dropdown">
-									<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Graph
-									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-										<a class="dropdown-item" href="#">
-											<label for="" id="age" onclick="Myfun('temp.txt',myFunction)">Age</label></a><br>
-											<a class="dropdown-item" href="#">
-												<label for="" id="location">Location</label></a>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</nav>
-			</li>
-		</ul>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-4">
-		<div class="card ">
-			<div class="card-header ">
-				<h5 class="card-title">Graph</h5>
-				<p class="card-category"></p>
-			</div>
-			<div class="card-body ">
+	  			</div>
+	  		</div>
+	  	</div>
+	  	<div class="card col-md-3">
 
-				<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-				<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-			</div>
-			<div class="card-footer ">
-				<hr>
+	    <div class="card-header">
+	      List
+	    </div>
 
-			</div>
-		</div>
-	</div>
-	<div class="card col-md-3">
-			<table><th>
-  <div class="card-header">
-    List
-  </div></th>
-<tr><td>
-  <div class="card-body" id="ShowData"></td></tr>
-</table>
-  </div>
-</div>
-</div>
-</body>
-</html>
+	    <div class="card-body" id="ShowData"> </div></td></tr>
+
+	    </div>
+
+	  </div>
+
+
+
+
+
+	  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+	  <script type="text/javascript" src="js/popper.min.js"></script>
+
+	  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	  <script type="text/javascript" src="js/mdb.min.js"></script>
+		 <script type="text/javascript" src="welcome.js"></script>
+	</body>
+	</html>
