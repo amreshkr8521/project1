@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -23,8 +22,6 @@
 	  <link rel="stylesheet" href="css/mdb.min.css">
 
 	</head>
-	
-
 
 	<script>
 
@@ -41,9 +38,9 @@
 		data: [{
 		  type: "area",
 		  dataPoints: [
-			    { y: 21 },
-			    { y: 23 },
-			  ]
+		    { y: 21 },
+		    { y: 23 },
+		  ]
 		}]
 		});
 		chart.render();
@@ -89,6 +86,20 @@
 		chart.render();
 
 	}
+	
+	$(document).ready(function() {
+		  $("#update").click(function() {
+		    var data = "Location" + "location";
+		      $.ajax({
+		      url : "Update",
+		      data :data,
+		      type : 'get',
+		      success : function(data,status) {
+		       alert(status);
+		      }
+		    });
+		  });
+	});
 
 	</script>
 
@@ -113,7 +124,14 @@
 
 	</style>
 	<body>
+		<%
+			response.setHeader("Pragma", "no-cache");
 
+			if (session.getAttribute("user") == null)
+
+				response.sendRedirect("LoginPage.jsp");
+
+		%>
 	  <header>
 
 	<nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
@@ -121,10 +139,10 @@
 
 	  <a class="navbar-brand text-uppercase" href="#">Welcome</a>
 
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
+	  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
 	    aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
-	  </button>
+	  </button> -->
 
 
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent2">
@@ -173,69 +191,105 @@
 	                </li>
 	              </ul>
 	            </div>
-
-
-
 	          </div>
 	        </div>
 	      </li>
 
 			</ul>
 
-      <ul class="navbar-nav mr-auto">
-
-
-        <li class="nav-item dropdown mega-dropdown active">
-          <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Graph
-            <span class="sr-only">(current)</span>
-          </a>
-          <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3"
-            aria-labelledby="navbarDropdownMenuLink2">
-            <div class="row">
-              <div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4">
-                <h6 class="sub-title text-uppercase font-weight-bold white-text">graph</h6>
-                <ul class="list-unstyled">
-                  <li class="sub-title text-uppercase" >
-
-                    <a class="menu-item pl-1 mt-2" href="#">
-                    <label for="" id="male" onclick="fun()">Male</label>
-                   </a>
-
-                  </li>
-                  <li class="sub-title text-uppercase" >
-                    <a class="menu-item pl-1 mt-2" href="#">
-                    <label for="" id="female" onclick="fun1()">Female</label>
-                   </a>
-                  </li>
-
-                  <li class="sub-title text-uppercase"  >
-                    <a class="menu-item pl-1 mt-2" href="#">
-                    <label for="" id="age" onclick="fun2()">Age</label>
-                    </a>
-                  </li>
-
-                </ul>
-              </div>
-
-
-
-            </div>
-          </div>
-        </li>
-
-      </ul>
-
-
-
 	  </div>
-		<form action="logout" method="post">
+     <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+       <ul class="navbar-nav mr-auto">
+
+
+         <li class="nav-item dropdown mega-dropdown active">
+           <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">Graph
+             <span class="sr-only">(current)</span>
+           </a>
+           <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3"
+             aria-labelledby="navbarDropdownMenuLink2">
+             <div class="row">
+               <div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4">
+                 <h6 class="sub-title text-uppercase font-weight-bold white-text">graph</h6>
+                 <ul class="list-unstyled">
+                   <li class="sub-title text-uppercase" >
+
+                     <a class="menu-item pl-1 mt-2" href="#">
+                     <label for="" id="male" onclick="fun()">Male</label>
+                    </a>
+
+                   </li>
+                   <li class="sub-title text-uppercase" >
+                     <a class="menu-item pl-1 mt-2" href="#">
+                     <label for="" id="female" onclick="fun1()">Female</label>
+                    </a>
+                   </li>
+
+                   <li class="sub-title text-uppercase"  >
+                     <a class="menu-item pl-1 mt-2" href="#">
+                     <label for="" id="age" onclick="fun2()">Age</label>
+                     </a>
+                   </li>
+
+                 </ul>
+               </div>
+
+
+
+             </div>
+           </div>
+         </li>
+
+       </ul>
+
+     </div>
+
 
 				<div>
-					<button type="submit" class="btn btn-primary btn-block ">Logout</button>
+					<!-- <button type="submit" class="btn btn-primary btn-block ">Logout</button> -->
+          <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item dropdown mega-dropdown active">
+              <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Setting
+                <span class="sr-only">(current)</span>
+              </a>
+              <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-5 px-3"
+                aria-labelledby="navbarDropdownMenuLink2">
+                <div class="row">
+                  <div class="col-md-6 col-xl-3 sub-menu mb-xl-0 mb-4">
+                    <h6 class="sub-title text-uppercase font-weight-bold white-text">Setting</h6>
+                    <ul class="list-unstyled">
+                      <li class="sub-title text-uppercase" >
+                        <a class="menu-item pl-1 mt-2" href="Update.jsp">
+                          Update</a>
+                      </li>
+                      <li class="sub-title text-uppercase" >
+                        <a class="menu-item pl-1 mt-2" href="Delete.jsp">
+                        delete
+                       </a>
+                      </li>
+
+                    </ul>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </li>
+
+          </ul>
+						<form action="logout" method="post">
+					<div>
+						<button class="btn btn-primary" type="submit" name="logout">logout</button>
+					</div>
+				</form>
 				</div>
 
-		</form>
+
 
 
 	</nav>
