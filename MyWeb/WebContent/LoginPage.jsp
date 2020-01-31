@@ -34,14 +34,14 @@
               <label for="Password" style="color: aliceblue">Password</label>
               <input type="password" class="form-control" id="pwd" name="pwd">
           </div>
-          <br />
+          
 
 
           <button id="login" type="submit" name="submit" class="btn btn-primary form-control">login</button>
 
       </div>
   </form>
-  <a href="forgotPassword.jsp">Forgot Password?</a>
+  <a href="forgotPassword.jsp" >Forgot Password?</a>
     <a href="SignUP.jsp"> Register</a>
 
 </body>

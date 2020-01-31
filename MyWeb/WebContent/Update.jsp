@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -49,14 +49,9 @@
               <div class="form-group ">
                   <label for="" style="color: aliceblue">Location</label>
                   <input type="text" class="form-control" id="location" aria-describedby="" name="location" >
-              </div>
-              <div class="form-group " style="color: aliceblue">
-                <input type="radio" value="Male" name="gender" >Male<input type="radio" value="Female" name="gender" >Female<br><br>
-              </div>
-             
+              </div>                           
               <button id="login" type="submit" name="submit" class="btn btn-primary form-control">Update</button>
           </div>
       </form>
     </body>
     </html>
-    

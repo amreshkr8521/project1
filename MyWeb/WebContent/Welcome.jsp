@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -10,21 +7,13 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	  <meta http-equiv="x-ua-compatible" content="ie=edge">
 	  <title>Welcome</title>
-
 	  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
 	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-
 	  <link rel="stylesheet" href="css/bootstrap.min.css">
-
 	  <link rel="stylesheet" href="css/mdb.min.css">
-
 	</head>
-
 	<script>
-
 	function fun(){
 		var chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
@@ -84,9 +73,7 @@
 		}]
 		});
 		chart.render();
-
 	}
-	
 	$(document).ready(function() {
 		  $("#update").click(function() {
 		    var data = "Location" + "location";
@@ -100,9 +87,7 @@
 		    });
 		  });
 	});
-
 	</script>
-
 	<style>
 	#fGraph{
 	  margin-left: auto;
@@ -112,8 +97,6 @@
 	  margin-right: auto;
 	  margin-top: 10px;
 	}
-
-
 	    body {
 	        background-image: url("img.jpg");
 	        background-position: center;
@@ -121,36 +104,23 @@
 	        background-size: cover;
 	        height: 1000px;
 	    }
-
 	</style>
 	<body>
 		<%
 			response.setHeader("Pragma", "no-cache");
-
 			if (session.getAttribute("user") == null)
-
 				response.sendRedirect("LoginPage.jsp");
-
 		%>
 	  <header>
-
 	<nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
-
-
 	  <a class="navbar-brand text-uppercase" href="#">Welcome</a>
 
 	  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
 	    aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button> -->
-
-
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-
-
 	    <ul class="navbar-nav mr-auto">
-
-
 	      <li class="nav-item dropdown mega-dropdown active">
 	        <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
 	          aria-haspopup="true" aria-expanded="false">Details
@@ -163,11 +133,9 @@
 	              <h6 class="sub-title text-uppercase font-weight-bold white-text">Data</h6>
 	              <ul class="list-unstyled">
 	                <li class="sub-title text-uppercase" >
-
 										<a class="menu-item pl-1 mt-2" href="#">
  										<label for="" id="male" >Male</label>
  									 </a>
-
 	                </li>
 	                <li class="sub-title text-uppercase" >
 										<a class="menu-item pl-1 mt-2" href="#">
@@ -194,14 +162,10 @@
 	          </div>
 	        </div>
 	      </li>
-
 			</ul>
-
 	  </div>
      <div class="collapse navbar-collapse" id="navbarSupportedContent2">
        <ul class="navbar-nav mr-auto">
-
-
          <li class="nav-item dropdown mega-dropdown active">
            <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">Graph
@@ -214,43 +178,30 @@
                  <h6 class="sub-title text-uppercase font-weight-bold white-text">graph</h6>
                  <ul class="list-unstyled">
                    <li class="sub-title text-uppercase" >
-
                      <a class="menu-item pl-1 mt-2" href="#">
                      <label for="" id="male" onclick="fun()">Male</label>
                     </a>
-
                    </li>
                    <li class="sub-title text-uppercase" >
                      <a class="menu-item pl-1 mt-2" href="#">
                      <label for="" id="female" onclick="fun1()">Female</label>
                     </a>
                    </li>
-
                    <li class="sub-title text-uppercase"  >
                      <a class="menu-item pl-1 mt-2" href="#">
                      <label for="" id="age" onclick="fun2()">Age</label>
                      </a>
                    </li>
-
                  </ul>
                </div>
-
-
-
              </div>
            </div>
          </li>
-
        </ul>
-
      </div>
-
-
 				<div>
 					<!-- <button type="submit" class="btn btn-primary btn-block ">Logout</button> -->
           <ul class="navbar-nav mr-auto">
-
-
             <li class="nav-item dropdown mega-dropdown active">
               <a class="nav-link dropdown-toggle text-uppercase" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Setting
@@ -271,16 +222,11 @@
                         delete
                        </a>
                       </li>
-
                     </ul>
                   </div>
-
-
-
                 </div>
               </div>
             </li>
-
           </ul>
 						<form action="logout" method="post">
 					<div>
@@ -288,10 +234,6 @@
 					</div>
 				</form>
 				</div>
-
-
-
-
 	</nav>
 	  </header>
 	  <div class="row">
@@ -302,32 +244,21 @@
 	  				<p class="card-category"></p>
 	  			</div>
 	  			<div class="card-body ">
-
 	  				<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 	  				<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	  			</div>
 	  			<div class="card-footer ">
 	  				<hr>
-
 	  			</div>
 	  		</div>
 	  	</div>
 	  	<div class="card col-md-3">
-
 	    <div class="card-header">
 	      List
 	    </div>
-
 	    <div class="card-body" id="ShowData"> </div></td></tr>
-
 	    </div>
-
 	  </div>
-
-
-
-
-
 	  <script type="text/javascript" src="js/jquery.min.js"></script>
 
 	  <script type="text/javascript" src="js/popper.min.js"></script>
